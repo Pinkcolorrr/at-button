@@ -1,0 +1,39 @@
+.timer {
+  color: var(--base-color-light);
+  width: 360px;
+  padding-bottom: 20px;
+}
+
+.timeWrapper {
+  display: flex;
+  justify-content: space-around;
+  font-size: 40px;
+}
+
+.textWrapper {
+  display: flex;
+}
+
+.hours, .minutes, .seconds {
+  position: relative;
+  &::after {
+    bottom: -40px;
+    font-weight: 400;
+    font-size: 16px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.hours::after {
+  content: 'hours';
+}
+
+.minutes::after {
+  content: 'minutes';
+}
+
+.seconds::after {
+  content: 'seconds';
+}

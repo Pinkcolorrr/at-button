@@ -1,8 +1,23 @@
-import { FC } from "react";
-import classes from "./Timer.module.scss";
+import { FC, useEffect, useState } from "react";
 import { TimerProps } from "@shared/Timer";
+import {
+  getHoursFromTimestamp,
+  getMinutesFromTimestamp,
+  getSecondsFromTimestamp
+} from "@shared/Timer/utils/TimerUtils";
+import classes from "./Timer.module.scss";
 
-export const Timer: FC<TimerProps> = ({hours, minutes, seconds}) => {
+export const Timer: FC<TimerProps> = ({time}) => {
+  const [hours, setHours] = useState(getHoursFromTimestamp(time))
+  const [minutes, setMinutes] = useState(getMinutesFromTimestamp(time))
+  const [seconds, setSeconds] = useState(getSecondsFromTimestamp(time))
+
+  useEffect(() => {
+    setHours(getHoursFromTimestamp(time));
+    setMinutes(getMinutesFromTimestamp(time));
+    setSeconds(getSecondsFromTimestamp(time));
+  }, [time]);
+
   return (
     <div className={classes.timer}>
       <div className={classes.timeWrapper}>

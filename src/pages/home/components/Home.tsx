@@ -1,11 +1,11 @@
-import classes from './Home.module.scss'
 import { FC } from "react";
-import { AtTimer } from "@features/AtTimer/components/AtTimer";
+import { TimerButton } from "@widgets/TimerButton/components/TimerButton";
+import classes from './Home.module.scss'
 
 export const Home: FC = () => {
   return (
     <div className={classes.home}>
-      <AtTimer/>
+      <TimerButton/>
     </div>
   );
 }

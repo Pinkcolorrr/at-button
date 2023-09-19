@@ -1,10 +1,11 @@
 import { FC } from "react";
-import { Home } from "@pages/home";
+import { HomePage } from "@pages/HomePage";
+
 
 export const App: FC = () => {
   return (
     <>
-      <Home/>
+      <HomePage/>
     </>
   )
 }

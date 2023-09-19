@@ -12,13 +12,16 @@
   "dependencies": {
     "@feature-sliced/eslint-config": "^0.1.0-beta.6",
     "@reduxjs/toolkit": "^1.9.5",
+    "bootstrap": "^5.3.2",
     "luxon": "^3.4.3",
     "react": "^18.2.0",
+    "react-bootstrap": "^2.8.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.16.0",
     "redux": "^4.2.1"
   },
   "devDependencies": {
+    "@svgr/rollup": "^8.1.0",
     "@types/luxon": "^3.3.2",
     "@types/node": "^20.6.0",
     "@types/react": "^18.2.15",

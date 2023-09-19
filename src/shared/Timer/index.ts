@@ -1,2 +1,2 @@
-export * from './components/Timer';
-export * from './models/TimerProps';
+export * from './Timer';
+export * from './TimerProps';

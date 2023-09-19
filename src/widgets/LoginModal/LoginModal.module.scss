@@ -1,0 +1,28 @@
+.modal {
+  background: rgba(var(--base-color-light--rgb), .5);
+  border: 2px solid var(--base-color-light);
+  height: 450px;
+  width: 350px;
+  border-radius: 50px;
+  padding: 50px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.modalBody {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.modalFooter {
+
+}
+
+.personIcon {
+  border: 4px solid var(--base-color-light);
+  padding: 30px;
+  border-radius: 50%;
+  margin-bottom: 50px;
+}

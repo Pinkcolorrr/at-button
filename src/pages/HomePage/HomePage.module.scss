@@ -1,0 +1,15 @@
+.home {
+  height: 100%;
+  position: relative;
+  background: url("@assets/images/home-background.webp") center;
+  background-size: cover;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navMenu {
+  position: absolute;
+  bottom: 30px;
+}

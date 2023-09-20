@@ -2,8 +2,8 @@
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  border: 1px solid var(--base-color-light);
-  background: rgba(var(--base-color-light--rgb), .35);
+  border: 1px solid var(--color-light);
+  background: rgba(var(--color-light--rgb), .35);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,11 +13,11 @@
     cursor: pointer;
 
     &:hover {
-      background: rgba(var(--base-color-light--rgb), .4);
+      background: rgba(var(--color-light--rgb), .4);
     }
 
     &:active {
-      background: rgba(var(--base-color-light--rgb), .5);
+      background: rgba(var(--color-light--rgb), .5);
     }
   }
 

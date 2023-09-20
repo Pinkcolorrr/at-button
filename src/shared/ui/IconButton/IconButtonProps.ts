@@ -1,7 +1,7 @@
-import { FC } from "react";
-import { ButtonPropsBase } from "@shared/ui/ButtonPropsBase";
+import { ButtonHTMLAttributes, DetailedHTMLProps, FC } from "react";
 
-export interface IconButtonProps extends ButtonPropsBase {
+
+export interface IconButtonProps extends DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
   Icon: FC;
   size?: number
 }

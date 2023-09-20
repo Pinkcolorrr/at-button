@@ -8,9 +8,9 @@ import {
 import classes from "./Timer.module.scss";
 
 export const Timer: FC<TimerProps> = ({time}) => {
-  const [hours, setHours] = useState(getHoursFromTimestamp(time))
-  const [minutes, setMinutes] = useState(getMinutesFromTimestamp(time))
-  const [seconds, setSeconds] = useState(getSecondsFromTimestamp(time))
+  const [hours, setHours] = useState(getHoursFromTimestamp(time));
+  const [minutes, setMinutes] = useState(getMinutesFromTimestamp(time));
+  const [seconds, setSeconds] = useState(getSecondsFromTimestamp(time));
 
   useEffect(() => {
     setHours(getHoursFromTimestamp(time));
@@ -28,5 +28,5 @@ export const Timer: FC<TimerProps> = ({time}) => {
         <span className={classes.seconds}>{seconds}</span>
       </div>
     </div>
-  )
-}
+  );
+};

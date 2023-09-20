@@ -13,4 +13,4 @@ export const AtButton: FC<AtButtonProps> = ({onClick}) => {
       <span className={classes.atButtonText}>click</span>
     </button>
   );
-}
+};

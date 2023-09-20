@@ -1,2 +1,2 @@
-export * from './Timer';
-export * from './TimerProps';
+export * from "./Timer";
+export * from "./TimerProps";

@@ -2,7 +2,7 @@ import { FC, useState } from "react";
 import { LoginModal } from "@widgets/LoginModal";
 import { AtButton } from "@features/AtButton";
 import { AtTimer } from "@features/AtTimer";
-import classes from './TimerButton.module.scss';
+import classes from "./TimerButton.module.scss";
 
 export const TimerButton: FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,5 +17,5 @@ export const TimerButton: FC = () => {
         <LoginModal isOpen={isOpen} setIsOpen={setIsOpen} />
       </div>
     </div>
-  )
-}
+  );
+};

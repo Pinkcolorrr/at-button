@@ -7,7 +7,7 @@ export const App: FC = () => {
     <>
       <HomePage/>
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;

@@ -1,6 +1,7 @@
-import { ButtonPropsBase } from "@shared/ui/ButtonPropsBase";
+import { ButtonHTMLAttributes, DetailedHTMLProps, ReactNode } from "react";
 
 
-export interface ButtonProps extends ButtonPropsBase {
-  title: string;
+export interface ButtonProps extends DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
+  children: ReactNode;
+  appearance?: "filled" | "stroked";
 }

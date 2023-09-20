@@ -7,12 +7,12 @@ export const AtTimer: FC = () => {
 
   useEffect(() => {
     const interval = setInterval(() => setTime(DateTime.now().valueOf()), 1000);
-    return () => clearInterval(interval)
+    return () => clearInterval(interval);
   }, []);
 
   return (
     <>
       <Timer time={time}/>
     </>
-  )
-}
+  );
+};

@@ -15,5 +15,15 @@ module.exports = {
       'warn',
       { allowConstantExport: true },
     ],
+    "comma-dangle": ["warn", {
+      "arrays": "never",
+      "objects": "never",
+      "imports": "never",
+      "exports": "never",
+      "functions": "never"
+    }],
+    '@typescript-eslint/no-unused-vars': ['warn'],
+    quotes: ["warn", "double"],
+    semi: "warn"
   },
 }

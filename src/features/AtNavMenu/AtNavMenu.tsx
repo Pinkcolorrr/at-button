@@ -5,5 +5,5 @@ import { NavMenu } from "@shared/ui";
 export const AtNavMenu: FC = () => {
   return (
     <NavMenu menuItems={AT_NAV_MENU_ITEM}/>
-  )
-}
+  );
+};

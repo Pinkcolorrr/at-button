@@ -1,1 +1,1 @@
-export * from './AnimatedNavMenu'
+export * from "./AnimatedNavMenu";

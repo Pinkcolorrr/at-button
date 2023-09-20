@@ -1,23 +1,15 @@
-import { FC } from "react";
+import { forwardRef } from "react";
 import { IconButtonProps } from "@shared/ui/IconButton/IconButtonProps";
-import classes from './IconButton.module.scss';
+import classes from "./IconButton.module.scss";
 
-export const IconButton: FC<IconButtonProps> = (
-  {
-    Icon,
-    onClick,
-    disabled = false,
-    role= 'button',
-    type = 'button',
-  }) => {
+export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>((props, ref) => {
+  const {Icon, ...buttonProps} = props;
 
   return (
     <button className={classes.iconButton}
-            disabled={disabled}
-            role={role}
-            type={type}
-            onClick={onClick}>
+            ref={ref}
+            {...buttonProps}>
       <Icon/>
     </button>
   );
-}
+});

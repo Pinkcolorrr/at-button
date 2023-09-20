@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { AtNavMenu } from "@features/AtNavMenu/AtNavMenu";
-import classes from './AnimatedNavMenu.module.scss';
+import classes from "./AnimatedNavMenu.module.scss";
 
 export const AnimatedNavMenu: FC = () => {
   return (
@@ -9,4 +9,4 @@ export const AnimatedNavMenu: FC = () => {
       <div></div>
     </div>
   );
-}
+};

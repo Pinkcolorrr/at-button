@@ -1,18 +1,13 @@
 .atButton {
-  width: 230px;
-  height: 230px;
-  border-radius: 50%;
-  background: var(--base-color-light);
-  border: none;
+  width: 335px;
+  height: 117px;
+  border-radius: 100px;
+  background: var(--color-neutral-dark);
+  border: 2px solid var(--color-light);
   transition: .2s;
 
   &:not(:disabled) {
     cursor: pointer;
-    box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.30);
-
-    &:active {
-      box-shadow: none;
-    }
   }
 }
 
@@ -24,5 +19,5 @@
   font-size: 30px;
   font-weight: 500;
   letter-spacing: 1.2px;
-  color: var(--base-color-dark);
+  color: var(--color-light);
 }

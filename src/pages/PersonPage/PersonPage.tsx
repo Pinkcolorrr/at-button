@@ -5,5 +5,5 @@ export const PersonPage: FC = () => {
     <main>
       PersonPage
     </main>
-  )
-}
+  );
+};

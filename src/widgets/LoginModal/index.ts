@@ -1,2 +1,2 @@
-export * from './LoginModal';
-export * from './LoginModalProps';
+export * from "./LoginModal";
+export * from "./LoginModalProps";

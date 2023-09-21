@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction } from "react";
 
-export interface LoginModalProps {
+export interface AuthModalWidgetProps {
   isOpen: boolean;
   setIsOpen: Dispatch<SetStateAction<boolean>>;
 }

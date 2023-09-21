@@ -5,7 +5,7 @@
   align-items: center;
   border-radius: 100px;
   border: none;
-  padding: 12px 0;
+  padding: 12px 24px;
   transition: .1s background-color, color, border ;
 
   &:not(:disabled) {
@@ -36,6 +36,26 @@
   color: var(--color-dark);
   background: transparent;
   border: 2px solid var(--color-dark);
+
+  &:disabled {
+    opacity: .4;
+  }
+
+  &:not(:disabled) {
+    &:hover {
+      background: rgba(var(--color-dark--rgb), .1);
+    }
+
+    &:active {
+      background: rgba(var(--color-dark--rgb), .2);
+    }
+  }
+}
+
+.button.ghost {
+  color: var(--color-dark);
+  background: transparent;
+  border: none;
 
   &:disabled {
     opacity: .4;

@@ -1,8 +1,8 @@
-import React  from "react";
+import { DetailedHTMLProps, InputHTMLAttributes } from "react";
 
-
-export interface InputProps extends React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {
+export interface InputProps extends DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {
   label?: string,
   validationMessage?: string;
   invalid?: boolean;
+  clearable?: boolean;
 }

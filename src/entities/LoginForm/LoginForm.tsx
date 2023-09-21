@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { LoginFormInputs, LoginFormProps } from "@entities/LoginForm/LoginFormProps";
 import { LoginFormPasswordValidator, LoginFormUsernameValidator } from "@entities/LoginForm/LoginFormValidators";
@@ -14,11 +14,12 @@ export const LoginForm: FC<LoginFormProps> = (props, context) => {
 
   return (
     <form onSubmit={handleSubmit(props.onSubmit)} {...props.htmlFormProps}>
+
       <Input
         className={classes.LoginFormUserNameInput}
         type="text"
         label="username"
-        placeholder="Enter your  username or e-mail"
+        placeholder="john-smith@gmail.com"
         invalid={!!errors.username}
         validationMessage={errors.username?.message}
         {...registerUsername}
@@ -28,7 +29,7 @@ export const LoginForm: FC<LoginFormProps> = (props, context) => {
         className={classes.LoginFormPasswordNameInput}
         type="password"
         label="password"
-        placeholder="Enter the password"
+        placeholder="****"
         invalid={!!errors.password}
         validationMessage={errors.password?.message}
         {...registerPassword}

@@ -1,6 +1,6 @@
 import { DateTime } from "luxon";
 import { FC, useEffect, useState } from "react";
-import { Timer } from "@shared/Timer";
+import { Timer } from "@shared/ui";
 
 export const AtTimer: FC = () => {
   const [time, setTime] = useState(DateTime.now().valueOf());

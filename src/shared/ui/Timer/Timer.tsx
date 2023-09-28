@@ -1,10 +1,10 @@
 import { FC, useEffect, useState } from "react";
-import { TimerProps } from "@shared/Timer/index";
+import { TimerProps } from "@shared/ui";
 import {
   getHoursFromTimestamp,
   getMinutesFromTimestamp,
   getSecondsFromTimestamp
-} from "@shared/Timer/TimerUtils";
+} from "@shared/ui/Timer/TimerUtils";
 import classes from "./Timer.module.scss";
 
 export const Timer: FC<TimerProps> = ({time}) => {

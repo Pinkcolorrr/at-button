@@ -4,6 +4,10 @@
   padding-bottom: 17px;
 }
 
+.input.disabled {
+  opacity: .4;
+}
+
 .label {
   display: inline-block;
   padding-left: 10px;
@@ -60,4 +64,8 @@
   svg {
     cursor: pointer;
   }
+}
+
+.test {
+
 }

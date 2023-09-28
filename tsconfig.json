@@ -7,7 +7,7 @@
     "skipLibCheck": true,
 
     /* Bundler mode */
-    "moduleResolution": "classic",
+    "moduleResolution": "Node",
     "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
@@ -15,12 +15,13 @@
     "jsx": "react-jsx",
     "baseUrl": "src",
     "paths": {
+      "@app/*": ["app/*"],
       "@pages/*": ["pages/*"],
-      "@entities/*": ["entities/*"],
-      "@features/*": ["features/*"],
       "@widgets/*": ["widgets/*"],
-      "@assets/*": ["assets/*"],
+      "@features/*": ["features/*"],
+      "@entities/*": ["entities/*"],
       "@shared/*": ["shared/*"],
+      "@assets/*": ["assets/*"],
     },
     /* Linting */
     "strict": true,

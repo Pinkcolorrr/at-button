@@ -1,8 +1,8 @@
 import { FC, useState } from "react";
 import { AuthModalWidgetProps } from "@widgets/AuthModalWidget/AuthModalWidgetProps";
-import { LoginForm } from "@entities/LoginForm";
-import { Button, Modal } from "@shared/ui";
+import { Login } from "@features/Login";
 import { RegisterForm } from "@entities/RegisterForm";
+import { Button, Modal } from "@shared/ui";
 import classes from "./AuthModalWidget.module.scss";
 
 type loginModalFormType = "login" | "register";
@@ -10,8 +10,8 @@ type loginModalFormType = "login" | "register";
 export const AuthModalWidget: FC<AuthModalWidgetProps> = ({isOpen, setIsOpen}) => {
   const [formType, setFormType] = useState<loginModalFormType>("login");
   const getActiveClass = (type: loginModalFormType) => formType === type ? classes.active : "";
-  const setFormTypeHandler = (type: loginModalFormType) => setFormType(type);
-  const onSubmit = (v) => console.log(v);
+  const changeFormType = (type: loginModalFormType) => () => setFormType(type);
+  const onAuth = () => setIsOpen(false);
 
   return (
     <Modal isOpen={isOpen} setIsOpen={setIsOpen}>
@@ -20,20 +20,20 @@ export const AuthModalWidget: FC<AuthModalWidgetProps> = ({isOpen, setIsOpen}) =
           <Button
             className={`${classes.navButton} ${getActiveClass("login")}`}
             appearance={"ghost"}
-            onClick={setFormTypeHandler.bind(this, "login")}>
+            onClick={changeFormType("login")}>
             Log in
           </Button>
           <Button
             className={`${classes.navButton}
             ${getActiveClass("register")}`}
             appearance={"ghost"}
-            onClick={setFormTypeHandler.bind(this, "register")}>
+            onClick={changeFormType("register")}>
             Sign in
           </Button>
         </header>
         <div className={classes.modalBody}>
-          {formType === "login" && <LoginForm onSubmit={onSubmit} htmlFormProps={{className: classes.modalForm}}/>}
-          {formType === "register" && <RegisterForm onSubmit={onSubmit} htmlFormProps={{className: classes.modalForm}}/>}
+          {formType === "login" && <Login onLogin={onAuth} className={classes.modalForm}/>}
+          {formType === "register" && <RegisterForm onSubmit={(e) => console.log(e)} htmlFormProps={{className: classes.modalForm}}/>}
         </div>
       </div>
     </Modal>

@@ -1,25 +1,28 @@
 import { forwardRef, useEffect, useState } from "react";
 import { ButtonProps } from "@shared/ui/Button/ButtonProps";
+import { LoadingBubbles } from "@shared/ui/LoadingBubbles/LoadingBubbles";
 import classes from "./Button.module.scss";
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
-  const {children, className, appearance, ...buttonProps} = props;
-  const [buttonClasses, setButtonClasses] = useState<string>(`${classes.button} ${classes.filled}`);
+  const {children, className, appearance, loading, ...buttonProps} = props;
+  const [appearanceClass, setAppearanceClass] = useState<string>(classes.filled);
 
   useEffect(() => {
     switch (appearance) {
-      case "filled": return setButtonClasses(`${classes.button} ${classes.filled}`);
-      case "stroked": return setButtonClasses(`${classes.button} ${classes.stroked}`);
-      case "ghost": return setButtonClasses(`${classes.button} ${classes.ghost}`);
-      default: setButtonClasses(`${classes.button} ${classes.filled}`);
+      case "filled": return setAppearanceClass(`${classes.filled}`);
+      case "stroked": return setAppearanceClass(`${classes.stroked}`);
+      case "ghost": return setAppearanceClass(`${classes.ghost}`);
+      default: setAppearanceClass(`${classes.filled}`);
     }
   }, [appearance]);
 
   return (
-    <button className={`${className} ${buttonClasses}`}
+    <button className={`${className} ${classes.button} ${appearanceClass}`}
             ref={ref}
             {...buttonProps}>
-      {children}
+      {loading ? <LoadingBubbles className={`${classes.buttonLoadingBubbles} ${appearanceClass}`}/> : children}
     </button>
   );
 });
+
+Button.displayName = "Button";

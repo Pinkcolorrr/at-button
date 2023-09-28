@@ -1,8 +1,8 @@
 import { RegisterOptions } from "react-hook-form";
 import { LoginFormInputs } from "@entities/LoginForm/LoginFormProps";
 
-export const LoginFormUsernameValidator: RegisterOptions<LoginFormInputs, "username"> = {
-  required: { value: true, message: "Username is required"},
+export const LoginFormUsernameValidator: RegisterOptions<LoginFormInputs, "usernameOrEmail"> = {
+  required: { value: true, message: "Username or email is required"},
   validate: (username) => /\s/g.test(username) ? "Wrong format" : true
 };
 

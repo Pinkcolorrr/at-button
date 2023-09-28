@@ -12,10 +12,10 @@ import classes from "./RegisterForm.module.scss";
 export const RegisterForm: FC<RegisterFormProps> = (props, context) => {
   const {register, handleSubmit, watch, formState: {errors}} = useForm<RegisterFormInputs, typeof context, RegisterFormInputs>();
 
-  const registerUsername = register("username" as keyof RegisterFormInputs, RegisterFormUsernameValidator);
-  const registerEmail = register("email" as keyof RegisterFormInputs, RegisterFormEmailValidator);
-  const registerPassword = register("password" as keyof RegisterFormInputs, RegisterFormPasswordValidator);
-  const registerConfirmPassword = register("confirmPassword" as keyof RegisterFormInputs, registerFormConfirmPasswordValidator(watch("password")));
+  const registerUsername = register("username", RegisterFormUsernameValidator);
+  const registerEmail = register("email", RegisterFormEmailValidator);
+  const registerPassword = register("password", RegisterFormPasswordValidator);
+  const registerConfirmPassword = register("confirmPassword", registerFormConfirmPasswordValidator(watch("password")));
 
 
   return (

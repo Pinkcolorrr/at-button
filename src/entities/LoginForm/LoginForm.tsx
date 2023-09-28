@@ -1,4 +1,4 @@
-import { FC, useRef, useState } from "react";
+import { FC } from "react";
 import { useForm } from "react-hook-form";
 import { LoginFormInputs, LoginFormProps } from "@entities/LoginForm/LoginFormProps";
 import { LoginFormPasswordValidator, LoginFormUsernameValidator } from "@entities/LoginForm/LoginFormValidators";
@@ -9,8 +9,8 @@ import classes from "./LoginForm.module.scss";
 export const LoginForm: FC<LoginFormProps> = (props, context) => {
   const {register, handleSubmit, formState: {errors}} = useForm<LoginFormInputs, typeof context, LoginFormInputs>();
 
-  const registerUsername = register("username" as keyof LoginFormInputs, LoginFormUsernameValidator);
-  const registerPassword = register("password" as keyof LoginFormInputs, LoginFormPasswordValidator);
+  const registerUsername = register("usernameOrEmail", LoginFormUsernameValidator);
+  const registerPassword = register("password", LoginFormPasswordValidator);
 
   return (
     <form onSubmit={handleSubmit(props.onSubmit)} {...props.htmlFormProps}>
@@ -20,8 +20,9 @@ export const LoginForm: FC<LoginFormProps> = (props, context) => {
         type="text"
         label="username"
         placeholder="john-smith@gmail.com"
-        invalid={!!errors.username}
-        validationMessage={errors.username?.message}
+        disabled={props.loading}
+        invalid={!!errors.usernameOrEmail}
+        validationMessage={errors.usernameOrEmail?.message}
         {...registerUsername}
       />
 
@@ -30,12 +31,13 @@ export const LoginForm: FC<LoginFormProps> = (props, context) => {
         type="password"
         label="password"
         placeholder="****"
+        disabled={props.loading}
         invalid={!!errors.password}
         validationMessage={errors.password?.message}
         {...registerPassword}
       />
 
-      <Button type="submit">LOG IN</Button>
+      <Button loading={props.loading} disabled={props.loading} type="submit">LOG IN</Button>
     </form>
   );
 };

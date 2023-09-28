@@ -4,8 +4,9 @@ module.exports = {
   extends: [
     'eslint:recommended',
     '@feature-sliced',
-    'plugin:@typescript-eslint/recommended',
+    "plugin:react/recommended",
     'plugin:react-hooks/recommended',
+    'plugin:@typescript-eslint/recommended',
   ],
   ignorePatterns: ['dist', '.eslintrc.cjs'],
   parser: '@typescript-eslint/parser',
@@ -24,6 +25,8 @@ module.exports = {
     }],
     '@typescript-eslint/no-unused-vars': ['warn'],
     quotes: ["warn", "double"],
-    semi: "warn"
+    semi: "warn",
+    "react/react-in-jsx-scope": "off",
+    "@typescript-eslint/ban-ts-comment": "off"
   },
 }

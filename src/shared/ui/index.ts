@@ -15,4 +15,7 @@ export * from "./Input/InputProps";
 
 export * from "./ErrorMessage/ErrorMessage";
 
-export * from "./Utils/WithNativeEvent";
+export * from "./Timer/Timer";
+export * from "./Timer/TimerProps";
+
+export * from "./Utils/withNativeEvent";

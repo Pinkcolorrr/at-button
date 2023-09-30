@@ -1,24 +1,17 @@
 .iconButton {
-  width: 60px;
-  height: 60px;
   border-radius: 50%;
-  border: 1px solid var(--color-light);
-  background: rgba(var(--color-light--rgb), .35);
+  background: transparent;
+  border: none;
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: .1s;
+  padding: 0;
 
   &:not(:disabled) {
     cursor: pointer;
-
-    &:hover {
-      background: rgba(var(--color-light--rgb), .4);
-    }
-
-    &:active {
-      background: rgba(var(--color-light--rgb), .5);
-    }
   }
 
+  &:disabled {
+    opacity: .3;
+  }
 }

@@ -43,7 +43,7 @@
     font-weight: 400;
     transition: 0s;
 
-    &:hover {
+    &:not(:disabled):hover {
       background: transparent;
     }
   }
@@ -51,7 +51,7 @@
   .navButton:not(.active) {
     color: var(--color-neutral);
 
-    &:hover:after {
+    &:not(:disabled):hover:after {
       background: var(--color-neutral);
     }
   }

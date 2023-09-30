@@ -1,3 +1,3 @@
 export * from "./viewerSlice";
-export * from "./viewerSelectors";
+export * as ViewerSelectors from "./viewerSelectors";
 export * from "./viwerThunks";

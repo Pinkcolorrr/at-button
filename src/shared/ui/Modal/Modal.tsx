@@ -13,9 +13,9 @@ const getModalNode = (toggleIsOpen: MouseEventHandler<HTMLDivElement>, children:
   </div>
 );
 
-export const Modal: FC<ModalProps> = ({isOpen, setIsOpen, children}) => {
+export const Modal: FC<ModalProps> = ({isOpen, setIsOpen, children, closeOnBackdropClick = true}) => {
 
-  const toggleIsOpen = () => setIsOpen(!isOpen);
+  const toggleIsOpen = () => closeOnBackdropClick && setIsOpen(!isOpen);
   const modalNode = getModalNode(toggleIsOpen, children);
 
   return (

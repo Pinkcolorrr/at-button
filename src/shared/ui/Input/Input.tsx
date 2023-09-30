@@ -9,7 +9,7 @@ import {
   useRef,
   useState
 } from "react";
-import { InputProps, ErrorMessage, withNativeEvent } from "@shared/ui";
+import { InputProps, ErrorMessage, withNativeEvent, IconButton } from "@shared/ui";
 import classes from "./Input.module.scss";
 
 export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
@@ -63,9 +63,9 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
                onBlur={withNativeEvent(toggleFocus(false), props.onBlur)}
         />
         <div className={classes.inputIconContainer}>
-          {showClear && clearable && <Cross onClick={clearInput}/>}
-          {type === "password" && inputType === "password" && <Eye onClick={toggleInputType("text")}/>}
-          {type === "password" && inputType === "text" && <EyeCross onClick={toggleInputType("password")}/>}
+          {showClear && clearable && <IconButton Icon={Cross} disabled={disabled} onClick={clearInput}/>}
+          {type === "password" && inputType === "password" && <IconButton Icon={Eye} disabled={disabled} onClick={toggleInputType("text")}/>}
+          {type === "password" && inputType === "text" && <IconButton Icon={EyeCross} disabled={disabled} onClick={toggleInputType("password")}/>}
         </div>
       </div>
       <div className={classes.errorMessage}>

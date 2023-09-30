@@ -15,8 +15,16 @@
 .iconNavButton {
   transition: .2s;
   border-radius: 50%;
+  height: 60px;
+  width: 60px;
+  border: 1px solid var(--color-light);
+  background: rgba(var(--color-light--rgb), .3);
 
   &:hover {
     transform: scale(1.15);
+  }
+
+  &:active {
+    background: rgba(var(--color-light--rgb), .5);
   }
 }

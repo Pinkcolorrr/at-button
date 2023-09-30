@@ -1,9 +1,9 @@
 /** Root reducer, that combine all other reducers */
 import { combineReducers } from "@reduxjs/toolkit";
-import { viewerReducer } from "@entities/Viewer/viewerSlice";
+import { viewerReducer, viewerSliceName } from "@entities/Viewer";
 
 export const rootReducer = combineReducers({
-  viewer: viewerReducer
+  [viewerSliceName]: viewerReducer
 });
 
 /** Type of store state */

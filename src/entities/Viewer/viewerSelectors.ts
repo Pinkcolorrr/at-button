@@ -1,4 +1,6 @@
 import { RootState } from "@app/store";
 
-export const selectViewerUsername = (state: RootState) => state.viewer.username;
-export const selectViewerEmail = (state: RootState) => state.viewer.email;
+
+export const username = (state: RootState) => state.viewer.username;
+export const email = (state: RootState) => state.viewer.email;
+export const loading = (state: RootState) => state.viewer.loading;

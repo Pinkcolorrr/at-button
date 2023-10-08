@@ -1,9 +1,9 @@
-import { forwardRef, useEffect, useState } from "react";
+import { forwardRef, memo, useEffect, useState } from "react";
 import { ButtonProps } from "@shared/ui/Button/ButtonProps";
 import { LoadingBubbles } from "@shared/ui/LoadingBubbles/LoadingBubbles";
 import classes from "./Button.module.scss";
 
-export const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
+const ButtonComponent = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
   const {children, className, appearance, loading, ...buttonProps} = props;
   const [appearanceClass, setAppearanceClass] = useState<string>(classes.filled);
 
@@ -25,4 +25,5 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) =>
   );
 });
 
-Button.displayName = "Button";
+ButtonComponent.displayName = "Button";
+export const Button = memo(ButtonComponent);

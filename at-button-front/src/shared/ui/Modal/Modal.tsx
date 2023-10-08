@@ -1,4 +1,4 @@
-import { FC, MouseEventHandler, ReactNode } from "react";
+import { FC, memo, MouseEventHandler, ReactNode } from "react";
 import { createPortal } from "react-dom";
 import { ModalProps } from "@shared/ui";
 import classes from "./Modal.module.scss";
@@ -13,7 +13,7 @@ const getModalNode = (toggleIsOpen: MouseEventHandler<HTMLDivElement>, children:
   </div>
 );
 
-export const Modal: FC<ModalProps> = ({isOpen, setIsOpen, children, closeOnBackdropClick = true}) => {
+export const ModalComponent: FC<ModalProps> = ({isOpen, setIsOpen, children, closeOnBackdropClick = true}) => {
 
   const toggleIsOpen = () => closeOnBackdropClick && setIsOpen(!isOpen);
   const modalNode = getModalNode(toggleIsOpen, children);
@@ -24,3 +24,5 @@ export const Modal: FC<ModalProps> = ({isOpen, setIsOpen, children, closeOnBackd
     </>
   );
 };
+
+export const Modal = memo(ModalComponent);

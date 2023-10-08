@@ -1,8 +1,8 @@
-import { forwardRef } from "react";
+import { forwardRef, memo } from "react";
 import { IconButtonProps } from "@shared/ui/IconButton/IconButtonProps";
 import classes from "./IconButton.module.scss";
 
-export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>((props, ref) => {
+const IconButtonComponent = forwardRef<HTMLButtonElement, IconButtonProps>((props, ref) => {
   const {Icon, size, className, ...buttonProps} = props;
 
   return (
@@ -15,4 +15,5 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>((props,
   );
 });
 
-IconButton.displayName = "IconButton";
+IconButtonComponent.displayName = "IconButton";
+export const IconButton = memo(IconButtonComponent);

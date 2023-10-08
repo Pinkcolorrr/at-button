@@ -2,17 +2,17 @@ import { ReactComponent as Cross } from "@assets/icons/cross.svg";
 import { ReactComponent as EyeCross } from "@assets/icons/eye-cross.svg";
 import { ReactComponent as Eye } from "@assets/icons/eye.svg";
 import {
-  ChangeEvent,
   forwardRef,
-  HTMLInputTypeAttribute,
+  HTMLInputTypeAttribute, memo,
   useEffect,
   useRef,
   useState
 } from "react";
-import { InputProps, ErrorMessage, withNativeEvent, IconButton } from "@shared/ui";
+import { InputProps, ErrorMessage, useWithNativeEvent, IconButton } from "@shared/ui";
 import classes from "./Input.module.scss";
 
-export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
+
+const InputComponent = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
   const {label, className, validationMessage, invalid, type, clearable, disabled, ...inputProps} = props;
   const [focusClass, setFocusClass] = useState<string>("");
   const [invalidClass, setInvalidClass] = useState<string>("");
@@ -20,10 +20,11 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
   const [inputType, setInputType] = useState<HTMLInputTypeAttribute | undefined>(type);
   const [showClear, setShowClear] = useState<boolean>(!!props.value);
   const inputRef = useRef<HTMLInputElement | null>(null);
+  const setShowClearOnChange = useWithNativeEvent((e) => setShowClear(!!e.currentTarget.value), props.onChange);
+  const setClassOnFocus = useWithNativeEvent(() => setFocusClass(classes.focus), props.onFocus);
+  const setClassOnBlur =  useWithNativeEvent(() => setFocusClass(""), props.onBlur);
 
   const toggleInputType = (type: HTMLInputTypeAttribute) => () => setInputType(type);
-  const toggleFocus = (v: boolean) => () => setFocusClass(v ? classes.focus : "");
-  const changeShowCLear = (e: ChangeEvent<HTMLInputElement>) => setShowClear(!!e.currentTarget.value);
   const clearInput = () => {
     if (inputRef.current) {
       const prototype = Object.getPrototypeOf(inputRef.current);
@@ -58,9 +59,9 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
                type={inputType}
                disabled={disabled}
                ref={setRefs()}
-               onChange={withNativeEvent<ChangeEvent<HTMLInputElement>>(changeShowCLear, props.onChange)}
-               onFocus={withNativeEvent(toggleFocus(false), props.onBlur)}
-               onBlur={withNativeEvent(toggleFocus(false), props.onBlur)}
+               onChange={setShowClearOnChange}
+               onFocus={setClassOnFocus}
+               onBlur={setClassOnBlur}
         />
         <div className={classes.inputIconContainer}>
           {showClear && clearable && <IconButton Icon={Cross} disabled={disabled} onClick={clearInput}/>}
@@ -75,4 +76,5 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
   );
 });
 
-Input.displayName = "Input";
+InputComponent.displayName = "Input";
+export const Input = memo(InputComponent);

@@ -18,4 +18,4 @@ export * from "./ErrorMessage/ErrorMessage";
 export * from "./Timer/Timer";
 export * from "./Timer/TimerProps";
 
-export * from "./Utils/withNativeEvent";
+export * from "./Hooks/useWithNativeEvent";

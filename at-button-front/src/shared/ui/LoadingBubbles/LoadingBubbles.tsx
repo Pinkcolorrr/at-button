@@ -1,8 +1,8 @@
-import { DetailedHTMLProps, FC, HTMLAttributes } from "react";
+import { DetailedHTMLProps, FC, HTMLAttributes, memo } from "react";
 import classes from "./LoadingBubbles.module.scss";
 
 
-export const LoadingBubbles: FC<DetailedHTMLProps<HTMLAttributes<HTMLSpanElement>, HTMLElement>> = (props) => {
+export const LoadingBubblesComponent: FC<DetailedHTMLProps<HTMLAttributes<HTMLSpanElement>, HTMLElement>> = (props) => {
   const {className, ...otherProps} = props;
 
   return (
@@ -13,3 +13,5 @@ export const LoadingBubbles: FC<DetailedHTMLProps<HTMLAttributes<HTMLSpanElement
     </span>
   );
 };
+
+export const LoadingBubbles = memo(LoadingBubblesComponent);

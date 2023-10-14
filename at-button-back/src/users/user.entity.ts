@@ -23,5 +23,5 @@ export class User {
 
   @ManyToMany(() => Role)
   @JoinTable()
-  role: Role;
+  roles: Role[];
 }
